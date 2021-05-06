@@ -10,11 +10,14 @@ import ar.edu.unju.edm.model.Producto;
 public interface IProductoService {
 	
 	public void guardarProducto(Producto unProducto);
-	public void modificarProducto(Producto productoAModificar);
+	public Producto crearProducto();
+	//public void modificarProducto(Producto productoAModificar);
 	public void eliminarProducto(Producto productoAEliminar);
 	public Producto obtenerUnProducto(String nombreProducto);
 	public ArrayList<Producto> obtenerTodosProductos();
 	public Producto obtenerProductoNuevo();
 	public Producto obtenerUltimoProducto();
+	public Producto encontrarProducto(int idproducto); 
+	public void modificarProducto(Producto productoModificado); 
 
 }

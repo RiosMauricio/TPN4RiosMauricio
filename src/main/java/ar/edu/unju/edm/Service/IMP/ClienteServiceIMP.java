@@ -52,4 +52,21 @@ public class ClienteServiceIMP implements iClienteService{
 		return listadoClientes;
 	}
 
+	@Override
+	public Cliente encontrarCliente(int dni) {
+		for (int i = 0; i < listadoClientes.size(); i++){
+		    if (listadoClientes.get(i).getNroDocumento() == dni) {
+		    	unCliente = listadoClientes.get(i);
+		    }
+		}
+		return unCliente;
+	}
+
+	@Override
+	public void modificarCliente(Cliente clienteModificado) {
+		for (int i = 0; i < listadoClientes.size(); i++){
+		    if (listadoClientes.get(i).getNroDocumento() == clienteModificado.getNroDocumento()) {
+		    	listadoClientes.set(i, clienteModificado); }
+		    }	
+	}
 }

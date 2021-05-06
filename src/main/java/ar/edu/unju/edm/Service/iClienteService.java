@@ -11,4 +11,6 @@ public interface iClienteService {
 	public void guardarCliente(Cliente unCliente); 
 	public Cliente crearCliente();
 	public List<Cliente> obtenerTodosClientes(); 
+	public Cliente encontrarCliente(int dni); 
+	void modificarCliente(Cliente clienteModificado); 
 }

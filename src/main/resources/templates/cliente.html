@@ -12,7 +12,7 @@
 <div class="container">
 <br>
 <h1 id='Titulos'><span class=colorTitulos>Carga de Cliente</span></h1>
-	<form id="formCliente" th:object="${unCliente}" th:action="@{/cliente/guardar}" method="post">
+	<form id="formCliente" th:object="${unCliente}" th:action="${editMode}?@{/cliente/modificar}:@{/cliente/guardar}" method="post">
 			<br>
 			<div class="form-group row">
 				<label for="numdoc" class="col-sm-2 col-form-label text-light">Documento</label>
@@ -74,8 +74,9 @@
 				</div>
 			</div>
 
+		<br>
 		<div class="d-grid gap-2">
-				<button  class="btn btn-dark" type="submit"  value="Agregar">Agregar</button>
+			<input type="submit" class="btn btn-dark"  th:value="${editMode}?'Modificar Cliente':'Crear Cliente'">
 		</div>
 
 	</form>
@@ -96,6 +97,7 @@
 				      <th>Email</th>	
 				      <th>Fecha U.Compra</th>	
 				      <th>Datos Adicionales</th>
+				      <th>Edicion</th>
 				    </tr>
 				    	<tr th:if="${clientes.empty}">
             			<td colspan="2"> No hay clientes en el listado </td>
@@ -109,7 +111,11 @@
 						<td th:text="${cli.codigoAreaTelefono}+' - ' +${cli.nroTelefono}"></td>
 						<td th:text="${cli.email}"></td>	
 						<td th:text="${#temporals.format(cli.fechaUltimaCompra,'dd/MM/yyyy')}"></td>		
-						<td th:text="${cli.edad}+${cli.tiempoUltCompra}+${cli.proxCumple}"></td>			
+						<td th:text="${cli.edad}+${cli.tiempoUltCompra}+${cli.proxCumple}"></td>
+
+						<td><a href="#" th:href="@{'/cliente/editar/'+${cli.nroDocumento}}">
+									<i class="fa fa-edit"></i></a> 
+						</td>			
 					</tr>
 				</table>
 			</div>
