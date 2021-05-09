@@ -21,6 +21,7 @@ public class ProductoController {
 	@GetMapping({"/producto"})
 	public String cargarProducto(Model model) {
 		model.addAttribute("unProducto", iProductoService.obtenerProductoNuevo());
+		model.addAttribute("productos", iProductoService.obtenerTodosProductos());
 		return "producto";
 	}
 	
@@ -39,6 +40,16 @@ public class ProductoController {
 		}
 		model.addAttribute("productos", iProductoService.obtenerTodosProductos());
 		return("producto");
+	}
+	
+	@GetMapping("eliminarProducto/{id}")
+	public String eliminarProducto(Model model, @PathVariable(name="id") int id) {
+		try {			iProductoService.eliminarProducto(id);			
+		}
+		catch(Exception e){
+			model.addAttribute("listErrorMessage",e.getMessage());
+		}			
+		return "redirect:/producto";
 	}
 	
 	@PostMapping("/producto")

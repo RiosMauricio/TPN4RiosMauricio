@@ -38,10 +38,15 @@ public class ProductoServiceIMP implements IProductoService{
 		
 	//	}
 
+
 	@Override
-	public void eliminarProducto(Producto productoAEliminar) {
+	public void eliminarProducto(int id) {
 		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < listaDeProductos.size(); i++){
+		    if (listaDeProductos.get(i).getCodProducto() == id) {
+		    	listaDeProductos.remove(i);
+		    }
+		}
 	}
 
 	@Override

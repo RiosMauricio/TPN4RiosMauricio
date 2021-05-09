@@ -114,13 +114,49 @@
 						<td th:text="${cli.edad}+${cli.tiempoUltCompra}+${cli.proxCumple}"></td>
 
 						<td><a href="#" th:href="@{'/cliente/editar/'+${cli.nroDocumento}}">
-									<i class="fa fa-edit"></i></a> 
+								<i class="fa fa-edit"></i>
+							</a> 
+							<a th:onclick="'javascript:confirmarEliminar(\''+${cli.nroDocumento}+'\');'">
+								<i class="fas fa-user-times"></i>
+							</a>
 						</td>			
 					</tr>
 				</table>
 			</div>
 </div>
+		
+		<div class="modal" tabindex="-1" id="modalBorrar">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Confirmar Eliminar</h5>
+					<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" id="eliminarModalTitulo">
+					<p>El Cliente será eliminado y no se prodrá recuperar, ¿Esta Seguro?.</p>
+				</div>
+				<input type="hidden" id="dniCliente" name="clienteId" />
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-dark" th:onclick="eliminarCliente()">Si, Eliminar Cliente</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 <div th:insert="layout/footer :: footer"></div>
+
+<script type="text/javascript">
+		function confirmarEliminar(dni) {
+			$('#modalBorrar').modal('show');
+			$("#dniCliente").val(dni);
+		}
+
+		function eliminarProducto() {
+			var id = $("#dniCliente").val();
+			window.location = "eliminarCliente/" + dni;
+		}
+	</script>
 		<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
 		<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}" type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
 		<script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}" type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>

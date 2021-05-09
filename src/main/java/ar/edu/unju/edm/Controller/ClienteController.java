@@ -43,6 +43,16 @@ public class ClienteController {
 		model.addAttribute("clientes", clienteService.obtenerTodosClientes());
 		return("cliente");
 	}
+	
+	@GetMapping("eliminarCliente/{dni}")
+	public String eliminarCliente(Model model, @PathVariable(name="dni") int dni) {
+		try {			clienteService.eliminarCliente(dni);			
+		}
+		catch(Exception e){
+			model.addAttribute("listErrorMessage",e.getMessage());
+		}			
+		return "redirect:/cliente/mostrar";
+	}
 		
 	@PostMapping("/cliente/guardar")
 	public String guardarNuevoProducto(@ModelAttribute("unCliente") Cliente nuevoCliente, Model model) {

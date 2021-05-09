@@ -69,4 +69,14 @@ public class ClienteServiceIMP implements iClienteService{
 		    	listadoClientes.set(i, clienteModificado); }
 		    }	
 	}
+
+	@Override
+	public void eliminarCliente(int dni){
+		// TODO Auto-generated method stub
+		for (int i = 0; i < listadoClientes.size(); i++){
+		    if (listadoClientes.get(i).getNroDocumento() == dni) {
+		    	listadoClientes.remove(i);
+		    }
+		}
+	}
 }
