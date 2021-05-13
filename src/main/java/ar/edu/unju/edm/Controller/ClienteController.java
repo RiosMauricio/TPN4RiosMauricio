@@ -44,8 +44,8 @@ public class ClienteController {
 		return("cliente");
 	}
 	
-	@GetMapping("eliminarCliente/{dni}")
-	public String eliminarCliente(Model model, @PathVariable(name="dni") int dni) {
+	@GetMapping("/cliente/eliminarCliente/{id}")
+	public String eliminarCliente(Model model, @PathVariable(name="id") int dni) {
 		try {			clienteService.eliminarCliente(dni);			
 		}
 		catch(Exception e){
