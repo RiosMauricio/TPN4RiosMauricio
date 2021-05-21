@@ -2,28 +2,56 @@ package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+@Entity
+@Table (name ="CLIENTES") 
 @Component
 public class Cliente {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
+	private Integer idCliente;  
+	@Column
+	private String tipoDocumento; 
+	@Column
+	private int nroDocumento;
+	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
+	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaUltimaCompra ;
 	
+	@Column
 	private String tiempoUltCompra;
-	private String proxCumple; 
-	private String tipoDocumento; 
-	private int nroDocumento; 
-	private String nombreApellido; 
-	private String email; 
+	@Column
+	private String proxCumple;
+	@Column
+	private String nombreApellido;
+	@Column
+	private String email;
+	@Column
 	private String password;
-	private int edad; 
+	@Column
+	private int edad;
+	
+	@Column
 	private int codigoAreaTelefono;
-	private int nroTelefono;  
-	private String datosAdicionales;  
-
+	@Column
+	private int nroTelefono;
+	@Column
+	private String datosAdicionales;
+	
 	public Cliente() {
 		// TODO Auto-generated constructor stub
 	}
@@ -44,6 +72,17 @@ public class Cliente {
 		this.fechaUltimaCompra = fechaUltimaCompra;
 		this.datosAdicionales = datosAdicionales; 
 	}
+
+	
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
+
 
 	public String getProxCumple() {
 		return proxCumple;
