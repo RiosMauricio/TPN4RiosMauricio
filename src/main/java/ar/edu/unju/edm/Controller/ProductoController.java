@@ -43,7 +43,7 @@ public class ProductoController {
 		return("producto");
 	}
 	
-	@GetMapping("eliminarProducto/{id}")
+	@GetMapping("producto/eliminarProducto/{id}")
 	public String eliminarProducto(Model model, @PathVariable(name="id") int id) {
 		try {			iProductoService.eliminarProducto(id);			
 		}

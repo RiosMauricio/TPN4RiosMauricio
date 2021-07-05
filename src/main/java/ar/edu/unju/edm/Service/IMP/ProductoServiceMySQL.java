@@ -51,9 +51,11 @@ public class ProductoServiceMySQL implements IProductoService{
 	}
 
 	@Override
-	public Producto encontrarProducto(int cod) throws Exception {
+	public Producto encontrarProducto(int codProducto) throws Exception {
 		// TODO Auto-generated method stub
-		return iProductoDAO.findByCodProducto(cod).orElseThrow(()->new Exception("El producto NO existe"));
+		System.out.println(iProductoDAO.findByCodProducto(codProducto));
+		return iProductoDAO.findByCodProducto(codProducto).orElseThrow(()->new Exception("El producto NO existe"));
+		
 	}
 
 	@Override
@@ -84,5 +86,4 @@ public class ProductoServiceMySQL implements IProductoService{
 		Producto productoEliminar = iProductoDAO.findByCodProducto(id).orElseThrow(()->new Exception("El Producto no fue encontrado"));
 		iProductoDAO.delete(productoEliminar);
 	}
-
 }

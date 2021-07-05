@@ -13,7 +13,7 @@
 	<br>
 	<div class="container">
 		<div class="row col-md-12">
-			<div th:each="c : ${producto}">
+			<div th:each="c : ${productos}">
 				<div class="col-md-4">
 					<div class="card" style="width: 15rem;">
   						<img src="/images/paquete.png" class="card-img-top" alt="hola">
@@ -21,7 +21,7 @@
 							<h5 class="card-title" th:text="${'producto - ' + c.codProducto}">Id</h5>
 							<p class="card-text" th:text="${c.nombre}">Nombre</p>
 							<p class="card-text" th:text="${c.precio}">Precio</p>
-							<a class="stretched-link btn btn-primary"><i class="fas fa-shopping-cart mr-2"></i>Comprar</a>
+							<a class="stretched-link btn btn-primary" th:href="@{'/producto/vender/'+${c.codProducto}}"><i class="fas fa-shopping-cart mr-2"></i>Comprar</a>
 						</div>
 					</div>
 					<br>
@@ -32,6 +32,20 @@
 	<br>
 	<br>
 	<div th:insert="layout/footer :: footer"></div>
+	
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+					$(".link-vender").on(
+							"click",
+							function(event) {
+								event.preventDefault();
+								$("#modalVender").modal("show").find(
+										".modal-content").load(
+										$(this).attr("href"));
+							});
+				});
+	</script>
 	
 	<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"
 		type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
