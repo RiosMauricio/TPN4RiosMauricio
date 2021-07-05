@@ -1,0 +1,50 @@
+.navmio{
+		
+	background:  rgb(255, 0, 128);
+	padding: 8px 16px 8px 16px;
+	text-align: center;
+}
+
+#Titulos
+{
+	text-align: center;
+}
+
+.colorTitulos
+{
+	color: rgb(255, 255, 255);
+}
+
+.contenedormio{
+	width: 100%;
+	padding-right: 80px;
+	padding-left: 20px; 
+	margin-right: auto;
+	margin-left: auto;
+	height: 450px; 
+}
+
+body {
+	margin: 0;
+		 padding: 0;
+		 color: #fff;
+		 background:url(../images/fondo3.jpg);
+		 background-size: cover;
+  		font-family: sans-serif;
+  		height: 100vh;
+	
+}
+
+.body-home{
+		margin: 0;
+		padding: 0;
+		background:url(../images/fondo1.jpg);
+		background-size: cover;
+  		font-family: sans-serif;
+  		height: 100vh;	
+}
+
+.colorFooter
+{
+	color: rgb(255, 255, 255);
+}

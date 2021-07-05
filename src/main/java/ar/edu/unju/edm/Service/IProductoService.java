@@ -12,12 +12,12 @@ public interface IProductoService {
 	public void guardarProducto(Producto unProducto);
 	public Producto crearProducto();
 	//public void modificarProducto(Producto productoAModificar);
-	public void eliminarProducto(int id);
+	public void eliminarProducto(int id)throws Exception;
 	public Producto obtenerUnProducto(String nombreProducto);
 	public ArrayList<Producto> obtenerTodosProductos();
 	public Producto obtenerProductoNuevo();
 	public Producto obtenerUltimoProducto();
-	public Producto encontrarProducto(int idproducto); 
-	public void modificarProducto(Producto productoModificado); 
+	public Producto encontrarProducto(int idproducto)throws Exception; 
+	public void modificarProducto(Producto productoModificado)throws Exception; 
 
 }
